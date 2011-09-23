@@ -1,0 +1,4 @@
+This repo is to compile a list of scripts to see how different methods of
+programming in PHP affect overall run time. This is not a "My language is
+better than your language" type of measurement. It is just a listing of
+different ways to do the same thing to see the true speed benefits.
