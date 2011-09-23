@@ -2,3 +2,10 @@ This repo is to compile a list of scripts to see how different methods of
 programming in PHP affect overall run time. This is not a "My language is
 better than your language" type of measurement. It is just a listing of
 different ways to do the same thing to see the true speed benefits.
+
+This is intended to be run via CLI but it can be run through a web server
+if you wish (keep in mind that the numbers will vary more.)
+
+This is very similar to http://www.phpbench.com/ by Chris Vincent but I
+wanted a way to be able to check out code and run it locally and against
+different PHP versions.
