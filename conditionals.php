@@ -115,4 +115,65 @@ $time_end = microtime(true);
 $t = $time_end - $time_start;
 echo '(boolean negative false) time: ' . $t . "\n";
 
+
+$time_start = microtime(true);
+for($x = 0; $x < $total_loops; $x++) {
+  switch (true){
+    case true:
+      $some_result = 'test';
+    break;
+    case false:
+      $some_result = 'test';
+    break;
+  }
+}
+$time_end = microtime(true);
+$t = $time_end - $time_start;
+echo '(switch conditional first) time: ' . $t . "\n";
+
+$time_start = microtime(true);
+for($x = 0; $x < $total_loops; $x++) {
+  switch (false){
+    case true:
+      $some_result = 'test';
+    break;
+    case false:
+      $some_result = 'test';
+    break;
+  }
+}
+$time_end = microtime(true);
+$t = $time_end - $time_start;
+echo '(switch conditional second) time: ' . $t . "\n";
+
+$time_start = microtime(true);
+for($x = 0; $x < $total_loops; $x++) {
+  switch (true){
+    case true:
+      $some_result = 'test';
+    break;
+    default:
+      $some_result = 'test';
+    break;
+  }
+}
+$time_end = microtime(true);
+$t = $time_end - $time_start;
+echo '(switch conditional default not used) time: ' . $t . "\n";
+
+$time_start = microtime(true);
+for($x = 0; $x < $total_loops; $x++) {
+  switch (false){
+    case true:
+      $some_result = 'test';
+    break;
+    default:
+      $some_result = 'test';
+    break;
+  }
+}
+$time_end = microtime(true);
+$t = $time_end - $time_start;
+echo '(switch conditional default) time: ' . $t . "\n";
+
 ?>
