@@ -1,5 +1,6 @@
 <?php
 $total_loops = 1000000;
+$some_result = false;
 
 $time_start = microtime(true);
 for($x = 0; $x < $total_loops; $x++) {
@@ -26,6 +27,60 @@ for($x = 0; $x < $total_loops; $x++) {
 $time_end = microtime(true);
 $t = $time_end - $time_start;
 echo '(if false) time: ' . $t . "\n";
+
+
+
+$time_start = microtime(true);
+for($x = 0; $x < $total_loops; $x++) {
+  if(true) {
+    $some_result = true;
+  } else if(false) {
+    $some_result = false;
+  }
+}
+$time_end = microtime(true);
+$t = $time_end - $time_start;
+echo '(if else if true) time: ' . $t . "\n";
+
+
+$time_start = microtime(true);
+for($x = 0; $x < $total_loops; $x++) {
+  if(false) {
+    $some_result = true;
+  } else if(true) {
+    $some_result = false;
+  }
+}
+$time_end = microtime(true);
+$t = $time_end - $time_start;
+echo '(if else if false) time: ' . $t . "\n";
+
+
+
+$time_start = microtime(true);
+for($x = 0; $x < $total_loops; $x++) {
+  if(true) {
+    $some_result = true;
+  } elseif(false) {
+    $some_result = false;
+  }
+}
+$time_end = microtime(true);
+$t = $time_end - $time_start;
+echo '(if elseif true) time: ' . $t . "\n";
+
+
+$time_start = microtime(true);
+for($x = 0; $x < $total_loops; $x++) {
+  if(false) {
+    $some_result = true;
+  } elseif(true) {
+    $some_result = false;
+  }
+}
+$time_end = microtime(true);
+$t = $time_end - $time_start;
+echo '(if elseif false) time: ' . $t . "\n";
 
 
 
