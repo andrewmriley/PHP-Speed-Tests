@@ -231,4 +231,73 @@ $time_end = microtime(true);
 $t = $time_end - $time_start;
 echo '(switch conditional default) time: ' . $t . "\n";
 
+
+$example_array = array('one', 'two', 'three');
+
+$time_start = microtime(true);
+for($x = 0; $x < $total_loops; $x++) {
+  if (TRUE) {
+    $some_result = join(' ', $example_array);
+  } else {
+    $some_result = join(' ', $example_array);
+  }
+}
+$time_end = microtime(true);
+$t = $time_end - $time_start;
+echo '(fat if) time: ' . $t . "\n";
+
+
+
+$time_start = microtime(true);
+for($x = 0; $x < $total_loops; $x++) {
+  if (TRUE) {
+    $some_result = join(' ', $example_array);
+  } 
+}
+$time_end = microtime(true);
+$t = $time_end - $time_start;
+echo '(skinny if) time: ' . $t . "\n";
+
+
+
+$time_start = microtime(true);
+for($x = 0; $x < $total_loops; $x++) {
+  $pre_computed = join(' ', $example_array);
+  if (TRUE) {
+    $some_result = 'asdf';
+  } else {
+    $some_result = $pre_computed;
+  }
+}
+$time_end = microtime(true);
+$t = $time_end - $time_start;
+echo '(meduim if) time: ' . $t . "\n";
+
+
+
+
+$time_start = microtime(true);
+for($x = 0; $x < $total_loops; $x++) {
+  $some_result = join(' ', $example_array);
+  if (FALSE) {
+    $some_result = 'ddd';
+  }
+}
+$time_end = microtime(true);
+$t = $time_end - $time_start;
+echo '(never if) time: ' . $t . "\n";
+
+
+
+$time_start = microtime(true);
+for($x = 0; $x < $total_loops; $x++) {
+  $some_result = join(' ', $example_array);
+  if (TRUE) {
+    $some_result = 'ddd';
+  }
+}
+$time_end = microtime(true);
+$t = $time_end - $time_start;
+echo '(always if) time: ' . $t . "\n";
+
 ?>

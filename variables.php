@@ -1,108 +1,95 @@
 <?php
-$total_loops = 1000000;
+$total_loops = 10000000;
 
 $time_start = microtime(true);
+$test = 99;
 for($x = 0; $x < $total_loops; $x++) {
-  $my_string = null;
-  $my_string = 'test';
+  $mynum = $test;
+  unset($mynum);
 }
 $time_end = microtime(true);
 $t = $time_end - $time_start;
-echo 'single quotes: ' . $t . "\n";
-
+echo '(int control) time: ' . $t . "\n";
 
 $time_start = microtime(true);
+$test = 'party.';
 for($x = 0; $x < $total_loops; $x++) {
-  $my_string = null;
-  $my_string = "test";
+  $mynum = (int)$test;
+  unset($mynum);
 }
 $time_end = microtime(true);
 $t = $time_end - $time_start;
-echo 'double quotes: ' . $t . "\n";
-
-
-$time_start = microtime(true);
-for($x = 0; $x < $total_loops; $x++) {
-  $my_string = null;
-  for($y = 0; $y < 100; $y++) {
-	  if($my_string) {
-  		$my_string .= "\n";
-	  }
-  	$my_string .= 'blah';
-  }
-}
-$time_end = microtime(true);
-$t = $time_end - $time_start;
-echo '(if) time: ' . $t . "\n";
-
-
-
-$time_start = microtime(true);
-for($x = 0; $x < $total_loops; $x++) {
-  $my_string = null;
-  for($y = 0; $y < 100; $y++) {
-      $my_string .= "blah\n";
-  }
-  $my_string = trim($my_string);
-}
-$time_end = microtime(true);
-$t = $time_end - $time_start;
-echo '(trim) time: ' . $t . "\n";
-
-
-
-$time_start = microtime(true);
-for($x = 0; $x < $total_loops; $x++) {
-  $my_array = array();
-  for($y = 0; $y < 100; $y++) {
-      $my_array[] = 'blah';
-  }
-  $my_string = implode("\n", $my_array);;
-}
-$time_end = microtime(true);
-$t = $time_end - $time_start;
-echo '(array) time: ' . $t . "\n";
-
+echo '(int string) time: ' . $t . "\n";
 
 
 $time_start = microtime(true);
 $test = 'party.';
 for($x = 0; $x < $total_loops; $x++) {
-  $my_string = "This is a $test";
+  $mynum = intval($test);
+  unset($mynum);
 }
 $time_end = microtime(true);
 $t = $time_end - $time_start;
-echo '(double quotes) time: ' . $t . "\n";
-
-
+echo '(intval string) time: ' . $t . "\n";
 
 $time_start = microtime(true);
-$test = 'party.';
+$test = 15;
 for($x = 0; $x < $total_loops; $x++) {
-  $my_string = 'This is a ' . $test;
+  $mynum = (int)$test;
+  unset($mynum);
 }
 $time_end = microtime(true);
 $t = $time_end - $time_start;
-echo '(single quotes) time: ' . $t . "\n";
-
-
+echo '(int int) time: ' . $t . "\n";
 
 $time_start = microtime(true);
+$test = 15;
 for($x = 0; $x < $total_loops; $x++) {
-  $my_string = str_replace('[test]', 'party.', 'This is a [test]');
+  $mynum = intval($test);
+  unset($mynum);
 }
 $time_end = microtime(true);
 $t = $time_end - $time_start;
-echo '(str_replace) time: ' . $t . "\n";
-
-
+echo '(intval int) time: ' . $t . "\n";
 
 $time_start = microtime(true);
+$test = '42';
 for($x = 0; $x < $total_loops; $x++) {
-  $my_string = preg_replace('/\[test\]/', 'party.', 'This is a [test]');
+  $mynum = (int)$test;
+  unset($mynum);
 }
 $time_end = microtime(true);
 $t = $time_end - $time_start;
-echo '(preg_replace) time: ' . $t . "\n";
+echo '(int string int) time: ' . $t . "\n";
+
+$time_start = microtime(true);
+$test = '42';
+for($x = 0; $x < $total_loops; $x++) {
+  $mynum = intval($test);
+  unset($mynum);
+}
+$time_end = microtime(true);
+$t = $time_end - $time_start;
+echo '(intval string int) time: ' . $t . "\n";
+
+$time_start = microtime(true);
+$test = 3.14159;
+for($x = 0; $x < $total_loops; $x++) {
+  $mynum = (int)$test;
+  unset($mynum);
+}
+$time_end = microtime(true);
+$t = $time_end - $time_start;
+echo '(int real) time: ' . $t . "\n";
+
+$time_start = microtime(true);
+$test = 3.14159;
+for($x = 0; $x < $total_loops; $x++) {
+  $mynum = intval($test);
+  unset($mynum);
+}
+$time_end = microtime(true);
+$t = $time_end - $time_start;
+echo '(intval real) time: ' . $t . "\n";
 
 ?>
