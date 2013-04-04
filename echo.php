@@ -8,7 +8,6 @@ for($x = 0; $x < $total_loops; $x++) {
 }
 $time_end = microtime(true);
 $r1 = $time_end - $time_start;
-echo '(echo replace) time: ' . $t . "\n";
 
 
 $time_start = microtime(true);
@@ -18,7 +17,6 @@ for($x = 0; $x < $total_loops; $x++) {
 }
 $time_end = microtime(true);
 $r2 = $time_end - $time_start;
-echo '(echo concat) time: ' . $t . "\n";
 
 
 $time_start = microtime(true);
